@@ -1,0 +1,12 @@
+<div class="row justify-content-center bg-secondary p-2 px-0">
+  <div *ngFor="let imagen of imagenes" class="col-4 mb-3">
+    <div class="card border border-0 bg-light">
+      <img
+        [src]="'http://localhost:1337' + imagen.attributes.foto.data.attributes.url"
+        alt="Imagen" class="card-img-top"/>
+      <div class="card-body">
+        <p class="card-text">Categoría</p>
+      </div>
+    </div>
+  </div>
+</div>
