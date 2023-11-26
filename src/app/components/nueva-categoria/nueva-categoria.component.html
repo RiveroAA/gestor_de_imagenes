@@ -1,12 +1,9 @@
 <div class="row bg-secondary p-2 mt-2">
      <h3 class="text-center">Agregar categoría</h3>
-     <form action="">
-          <label for="campo1">Categoría campo 1</label>
-          <input type="text" class="form-control mb-2" id="campo1" placeholder="Campo 1">
-
-          <label for="campo2">Categoría campo 2</label>
-          <input type="text" class="form-control mb-2" id="campo2" placeholder="Campo 2">
-
-          <button type="submit" class="btn btn-primary mb-2">Agregar</button>
+     <form (ngSubmit)="onSubmit()" [formGroup]="categoriaForm">
+       <label for="campo1">Nombre</label>
+       <input type="text" class="form-control mb-2" id="campo1" placeholder="Nombre de Categoría" formControlName="nombre">
+   
+       <button type="submit" class="btn btn-primary mb-2">Agregar</button>
      </form>
 </div>
