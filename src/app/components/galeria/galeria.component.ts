@@ -9,8 +9,18 @@ interface ImagenData {
           url: string;
         };
       };
-    };
+    },
+    categorias: {
+      data: [
+        {
+          attributes: {
+            nombre: string | null;
+          }
+        }
+      ]
+    }
   };
+  showCategories?: boolean;
 }
 
 interface ImagenResponse {
@@ -44,5 +54,8 @@ export class GaleriaComponent implements OnInit {
         console.error('Error al obtener imágenes:', error);
       }
     );
+  }
+  toggleDropdown(imagen: ImagenData): void {
+    imagen.showCategories = !imagen.showCategories;
   }
 }

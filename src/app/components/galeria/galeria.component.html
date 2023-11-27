@@ -5,7 +5,16 @@
         [src]="'http://localhost:1337' + imagen.attributes.foto.data.attributes.url"
         alt="Imagen" class="card-img-top"/>
       <div class="card-body">
-        <p class="card-text">Categoría</p>
+        <div class="d-flex justify-content-between">
+          <p class="card-text">
+            <button class="btn btn-link" (click)="toggleDropdown(imagen)">Ver Categorías</button>
+          </p>
+        </div>
+        <ul class="list-unstyled" *ngIf="imagen.showCategories">
+          <li *ngFor="let categoria of imagen.attributes.categorias.data">
+            {{ categoria.attributes.nombre }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>

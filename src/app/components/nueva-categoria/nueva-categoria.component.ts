@@ -1,7 +1,7 @@
-// nueva-categoria.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StrapiRequestsService } from 'src/app/services/strapi-requests.service';
+import { Categoria } from 'src/app/models/categorias.model';
 
 @Component({
   selector: 'app-nueva-categoria',
@@ -22,13 +22,24 @@ export class NuevaCategoriaComponent {
 
   onSubmit() {
     const nombre = this.categoriaForm.value.nombre;
-    this.strapiRequestsService.nuevaCategoria(nombre).subscribe(
+    console.log(nombre);
+  
+    const categoria: Categoria = {
+      data: {
+        nombre: nombre
+      }
+    };
+    console.log(categoria);
+  
+    this.strapiRequestsService.nuevaCategoria(categoria).subscribe(
       response => {
         console.log('Categoria creada:', response);
+        window.location.reload();
       },
       error => {
         console.error('Error al crear la categoría:', error);
       }
     );
   }
+  
 }
